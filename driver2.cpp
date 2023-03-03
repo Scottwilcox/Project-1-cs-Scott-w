@@ -13,7 +13,7 @@ using namespace std;
 Customer* customerArray[MAX_NUM_CUSTOMERS]; 
 MenuItem* itemArray[MAX_MENU_ITEMS];
 
-int getLoyaltyDatabase(*Customer name);  //and array of pointers. // call differently? 
+int getLoyaltyDatabase(Customer* name[]);
 int check();
 void createDefaultCustomer();
 void createCustomer();
@@ -49,7 +49,7 @@ void createMenu(){
 int main(){ 
 char choice; 
 createMenu();
-countUser = getLoyaltyDatabase(customerArray);
+//countUser = getLoyaltyDatabase(customerArray);
   cout <<"\n\t            ------ WELCOME TO MEATMOD LOYALTY DATABASE ------           \n\n";
 
 
@@ -93,8 +93,8 @@ countUser = getLoyaltyDatabase(customerArray);
     fin >> temp; 
     loyatyPoints = stoi(temp); 
 
-    cout << firstName << endl; 
-    cout << loyatlyNum << endl; 
+    //cout << firstName << endl; 
+    //cout << loyatlyNum << endl; 
         Customer newCustomer = Customer(loyatlyNum, firstName, lastName, loyatyPoints);
         customerArray[count] = newCustomer; 
 
@@ -104,6 +104,7 @@ countUser = getLoyaltyDatabase(customerArray);
         }
              fin.close(); 
         }
+        countUser = count; 
     return count; 
                                                 }
 
